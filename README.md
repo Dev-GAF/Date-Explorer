@@ -1,1 +1,3 @@
-# Date-Explorer
+# Projeto - DateExplorer
+
+## EM PROCESSO DE QUASE FINALIZAÇÃO...
