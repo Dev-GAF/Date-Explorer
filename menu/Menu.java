@@ -2,20 +2,29 @@ package menu;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-
-import calendario.Data;
-
 import java.io.IOException;
 //import java.io.*;
 
+import calendario.Data;
 public class Menu {
     
     private BufferedReader entrada;
     private Data data;
 
-    public Menu (Data data) 
+	public Data validarData (Object data) throws IllegalArgumentException
+	{
+		if (data==null) 
+			throw new IllegalArgumentException("A data não pode ser nula!");
+
+		if (!(data instanceof Data)) 
+			throw new IllegalArgumentException("O objeto passado não é do tipo Data");
+
+		return (Data)data;
+	}
+
+    public Menu (Data data) throws IllegalArgumentException
     {
-        this.data    = data;
+        this.data    = this.validarData(data);
         this.entrada = new BufferedReader(new InputStreamReader(System.in));
     } 
 
@@ -61,8 +70,6 @@ public class Menu {
 
 					case 6:
 						
-						
-						break;
 
 					case 7:
 						
