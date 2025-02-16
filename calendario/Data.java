@@ -111,7 +111,7 @@ public class Data implements Cloneable, Comparable <Data>
 
     public void avanceVariosDias (int qtd) throws Exception
     {
-        if (qtd <= 0) throw new Exception("ERRO! Por favor, Digite valores acima de 0!");
+        if (qtd <= 0) throw new Exception("Por favor, Digite valores acima de 0!");
         for (int i=0;i<qtd;i++) this.avanceUmDia();
     }
 
@@ -157,7 +157,7 @@ public class Data implements Cloneable, Comparable <Data>
 
     public void retrocedaVariosDias (int qtd) throws Exception 
     {
-        if (qtd <= 0) throw new Exception("ERRO! Por favor, Digite valores acima de 0!");
+        if (qtd <= 0) throw new Exception("Por favor, Digite valores acima de 0!");
         for(int i=0; i<qtd; i++) this.retrocedaUmDia();
     }   
 
@@ -176,7 +176,7 @@ public class Data implements Cloneable, Comparable <Data>
 
     public Data getVariosDiasAdiante (int qtd) throws Exception 
     {
-        if (qtd<=0) throw new Exception("ERRO! Por favor, Digite valores acima de 0!");
+        if (qtd<=0) throw new Exception("Por favor, Digite valores acima de 0!");
 
         Data ret=null;
         try {
@@ -204,7 +204,7 @@ public class Data implements Cloneable, Comparable <Data>
     public Data getVariosDiasAtras (int qtd) throws Exception 
     {
         if (qtd<=0)
-            throw new Exception("ERRO! Por favor, Digite valores acima de 0!");
+            throw new Exception("Por favor, Digite valores acima de 0!");
 
         Data ret = null;
         try
