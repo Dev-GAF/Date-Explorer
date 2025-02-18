@@ -217,9 +217,32 @@ public class Data implements Cloneable, Comparable <Data>
         return ret;
     }
 
+    public static Data transformarEmData (String dataStr) throws Exception
+    {
+        byte dia, mes;
+        short ano;
+
+        String[] dataAtual = new String [3];
+
+        dataAtual = dataStr.split("/");
+
+        if (dataAtual.length == 3)
+        {
+            dia = Byte.parseByte(dataAtual[0]);
+            mes = Byte.parseByte(dataAtual[1]);
+            ano = Short.parseShort(dataAtual[2]);
+        } else
+            throw new Exception("Formato de Data inserida inválida! Digite novamente no formato: dd/mm/yyyy");
+
+        if (!Data.isValida((byte)dia, (byte)mes, (short)ano))
+            throw new Exception("Data inserida inválida!");
+            
+        return new Data((byte)dia, (byte)mes, (short)ano);
+    }
+
     @Override
     public String toString() {
-        return String.format("Hoje é %d/%d/%d", this.dia, this.mes, this.ano);
+        return String.format("%d/%d/%d", this.dia, this.mes, this.ano);
     }
 
     @Override
