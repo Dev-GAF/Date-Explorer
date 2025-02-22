@@ -2,6 +2,9 @@ package programa;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+
+import calendario.Data;
+
 import java.io.IOException;
 //import java.io.*;
 
@@ -11,37 +14,46 @@ public class Main
 	{
 		BufferedReader entrada = new BufferedReader(new InputStreamReader(System.in));
 
-		byte opcao;
-		do 
+		try 
 		{
-			try
-			{
-				System.out.println("\nEscolha uma opção:");
-				System.out.println("(1) - Avançar um dia");
-				System.out.println("(2) - Avançar vários dias");
-				System.out.println("(3) - Retroceder um dia");
-				System.out.println("(4) - Retroceder vários dias");
-				System.out.println("(5) - Obter o dia seguinte");
-				System.out.println("(6) - Obter vários dias adiante");
-				System.out.println("(7) - Obter o dia anterior");
-				System.out.println("(8) - Obter vários dias atrás");
-				System.out.println("(0) - Sair");
-				System.out.print("\nDigite uma opção: ");
-				opcao = Byte.parseByte(entrada.readLine());
+			System.out.print("\nDigite uma data no formato dd/mm/yyyy: ");
+			String dataInserida = entrada.readLine();
 
-			}
-			catch (IOException erro)
+			Data dataEscolhida = Data.transformarEmData(dataInserida);
+		
+			byte opcao;
+			do 
 			{
-				opcao=9;
-			} // Sei que não vai dar esse erro
-			catch (NumberFormatException erro) 
-			{
-				System.err.println("\nByte inserido inválido!");
-				opcao=9;
-			}
+				try
+				{
+					System.out.println("==================================");
+					System.out.println("\tData: " + dataEscolhida);
+					System.out.println("==================================");
+					System.out.println("\tEscolha uma opção:");
+					System.out.println("(1) - Avançar um dia");
+					System.out.println("(2) - Avançar vários dias");
+					System.out.println("(3) - Retroceder um dia");
+					System.out.println("(4) - Retroceder vários dias");
+					System.out.println("(5) - Obter o dia seguinte");
+					System.out.println("(6) - Obter vários dias adiante");
+					System.out.println("(7) - Obter o dia anterior");
+					System.out.println("(8) - Obter vários dias atrás");
+					System.out.println("(0) - Sair");
+					System.out.println("==================================");
+					System.out.print("\nDigite uma opção: ");
+					opcao = Byte.parseByte(entrada.readLine());
 
-			try
-			{
+				}
+				catch (IOException erro)
+				{
+					opcao=9;
+				} // Sei que não vai dar esse erro
+				catch (NumberFormatException erro) 
+				{
+					System.err.println("\nByte inserido inválido!");
+					opcao=9;
+				}
+
 				switch (opcao) 
 				{
 					case 1:
@@ -71,15 +83,13 @@ public class Main
 					default:
 						System.err.println("Opção inválida! Tente novamente...");
 				}
-			
-			}
-			catch (Exception erro) 
-			{
-				System.err.println("Erro inesperado: "+ erro.getMessage());
-			}	
-		} 
-		while(opcao!=0);
+			} 
+			while(opcao!=0);
+		}
+		catch (Exception erro) 
+		{
+			System.err.println("Erro: "+ erro.getMessage());
+		}		
 	}
 }
-
 
