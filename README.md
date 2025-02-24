@@ -38,7 +38,7 @@ A interface é baseada em um menu de texto, com as seguintes opções:
 
 * (1) Manipular a Data
 * (2) Ver Qualquer Data
-* 
+  
 Quando o usuário escolhe a opção 1, ele pode avançar ou retroceder a data. As alterações são mantidas até a próxima execução do programa. Já na opção 2, a data é "reiniciada" sempre que o usuário escolher uma nova consulta.
 
 ## 💡 Funcionalidades do Código
