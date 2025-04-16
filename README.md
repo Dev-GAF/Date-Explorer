@@ -1,4 +1,4 @@
-# Projeto - Date Explorer
+# ** Projeto - Date Explorer **
 
 Data Explorer é um aplicativo interativo que permite ao usuário consultar e manipular datas de maneira simples e dinâmica. O usuário pode escolher entre duas opções principais: manipular uma data e mantê-la alterada ao longo das interações, ou visualizar uma data sem alterá-la, reiniciando-a a cada consulta.
 
