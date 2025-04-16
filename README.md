@@ -1,6 +1,6 @@
 # ** Projeto - Date Explorer **
 
-Data Explorer é um aplicativo interativo que permite ao usuário consultar e manipular datas de maneira simples e dinâmica. O usuário pode escolher entre duas opções principais: manipular uma data e mantê-la alterada ao longo das interações, ou visualizar uma data sem alterá-la, reiniciando-a a cada consulta.
+Data Explorer é um programa interativo que permite ao usuário consultar e manipular datas de maneira simples e dinâmica. O usuário pode escolher entre duas opções principais: manipular uma data e mantê-la alterada ao longo das interações, ou visualizar uma data sem alterá-la, reiniciando-a a cada consulta.
 
 Desenvolvido com Java, o projeto utiliza uma classe Data para representar e manipular as datas. Ele oferece funcionalidades como avançar ou retroceder dias, tanto individualmente quanto em quantidades maiores.
 
