@@ -14,7 +14,7 @@ Desenvolvido com Java, o projeto utiliza uma classe Data para representar e mani
 
 ## ⚙ Tecnologias Utilizadas
 
-- 💻 Java SE 8+
+- 💻 Java JDK 21
 - 🧪 Terminal interativo
 - 🧠 Programação orientada a objetos
 
