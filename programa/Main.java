@@ -1,30 +1,18 @@
 package programa;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.io.IOException;
-
+import console.ConsoleManager;
 import calendario.Data;
 
 public class Main 
 {
     public static void main(String[] args) 
 	{
-        BufferedReader entrada = new BufferedReader(new InputStreamReader(System.in));
         Data data = null;
 
         String respostaFinalUsuario;
         do 
 		{
-            // Limpar o terminal
-            try 
-			{
-                new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
-            } 
-			catch (Exception erro) 
-			{
-                erro.printStackTrace();
-            }
+            ConsoleManager.limparTerminal();
 
             System.out.println("==================================");
             System.out.println("\tMENU PRINCIPAL");
@@ -34,9 +22,7 @@ public class Main
 			{
                 try 
 				{
-                    System.out.print("Digite uma data no formato dd/mm/yyyy: ");
-                    String dataInserida = entrada.readLine();
-
+                    String dataInserida = ConsoleManager.lerString("Digite uma data no formato dd/mm/yyyy: ");
                     data = Data.transformarEmData(dataInserida);
                 } 
 				catch (Exception erro) 
@@ -53,69 +39,32 @@ public class Main
             byte opcao;
             do
             {
-                try 
-                {
-                    System.out.print("Digite uma opção: ");
-                    opcao = Byte.parseByte(entrada.readLine());
-
-                    if (opcao<1 || opcao>2)
-                        System.err.println("Erro! Digite uma das opções válidas...\n");
-                } 
-                catch (IOException erro) 
-                {
-                    opcao = 9;  // Atribui um valor qualquer
-                } 
-                catch (NumberFormatException erro) 
-                {
-                    System.err.println("\nByte inserido inválido! Por favor, digite novamente...");
-                    opcao = 9;
-                }
+                opcao = ConsoleManager.lerByte("Digite uma opção: ");
+                if (opcao<1 || opcao>2)
+                    System.err.println("Erro! Digite uma das opções válidas...\n");
             }
             while (opcao<1 || opcao>2);
 
-            try 
-			{
-                new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
-            } 
-			catch (Exception erro) 
-			{
-                erro.printStackTrace();
-            }
+            ConsoleManager.limparTerminal();
 
             byte opcaoMenu;
             switch (opcao) 
 			{
                 case 1:
-                    System.out.println("==================================");
-                    System.out.println("\tData: " + data);
-                    System.out.println("==================================");
-                    System.out.println("\tEscolha uma opção:");
-                    System.out.println("(1) - Avançar um dia");
-                    System.out.println("(2) - Avançar vários dias");
-                    System.out.println("(3) - Retroceder um dia");
-                    System.out.println("(4) - Retroceder vários dias");
-                    System.out.println("(0) - Sair");
-                    System.out.println("==================================");
+                    ConsoleManager.subMenu(data, new String[] {
+                        "(1) - Avançar um dia",
+                        "(2) - Avançar vários dias",
+                        "(3) - Retroceder um dia",
+                        "(4) - Retroceder vários dias",
+                        "(0) - Sair"
+                    });
 
                     do
                     {
-                        try 
-                        {
-                            System.out.print("Digite uma opção: ");
-                            opcaoMenu = Byte.parseByte(entrada.readLine());
+                        opcaoMenu = ConsoleManager.lerByte("Digite uma opção: ");
 
-                            if (opcaoMenu<0 || opcaoMenu>4)
-                                System.err.println("Erro! Digite uma das opções válidas...\n");
-                        } 
-                        catch (IOException erro) 
-                        {
-                            opcaoMenu = 9;  // Atribui um valor qualquer
-                        } 
-                        catch (NumberFormatException erro) 
-                        {
-                            System.err.println("\nByte inserido inválido! Por favor, digite novamente...");
-                            opcaoMenu = 9;
-                        }
+                        if (opcaoMenu<0 || opcaoMenu>4)
+                            System.err.println("Erro! Digite uma das opções válidas...\n");
                     }
                     while (opcaoMenu<0 || opcaoMenu>4);
 
@@ -130,27 +79,16 @@ public class Main
                             break;
 
                         case 2:
-                            while (true)
+                            int qtdDias = ConsoleManager.lerInt("Avançar quantos dias? ");
+                            try 
                             {
-                                try 
-                                {
-                                    System.out.print("Avançar quantos dias? ");
-                                    int qtdDias = Integer.parseInt(entrada.readLine());
-
-                                    data.avanceVariosDias(qtdDias);
-                                    System.out.println("\nData: " + data);
-                                    break;
-                                } 
-                                catch (IOException erro) 
-                                {} 
-                                catch (NumberFormatException erro) 
-                                {
-                                    System.err.println("\nint inserido inválido!");
-                                } 
-                                catch (Exception erro) 
-                                {
-                                    System.err.println(erro.getMessage());
-                                }
+                                data.avanceVariosDias(qtdDias);
+                                System.out.println("\nData: " + data);
+                                break;
+                            } 
+                            catch (Exception erro) 
+                            {
+                                System.err.println(erro.getMessage());
                             }
                             break;
 
@@ -160,27 +98,15 @@ public class Main
                             break;
 
                         case 4:
-                            while (true)
+                            int qtdDiasVoltar = ConsoleManager.lerInt("Retroceder quantos dias? ");
+                            try 
                             {
-                                try 
-                                {
-                                    System.out.print("Retroceder quantos dias? ");
-                                    int qtdDias = Integer.parseInt(entrada.readLine());
-
-                                    data.retrocedaVariosDias(qtdDias);
-                                    System.out.println("\nData: " + data);
-                                    break;
-                                } 
-                                catch (IOException erro) 
-                                {} 
-                                catch (NumberFormatException erro) 
-                                {
-                                    System.err.println("\nint inserido inválido!");
-                                } 
-                                catch (Exception erro) 
-                                {
-                                    System.err.println(erro.getMessage());
-                                }
+                                data.retrocedaVariosDias(qtdDiasVoltar);
+                                System.out.println("\nData: " + data);
+                            } 
+                            catch (Exception erro) 
+                            {
+                                System.err.println(erro.getMessage());
                             }
                             break;
 
@@ -191,36 +117,20 @@ public class Main
                     break;
 
                 case 2:
-                    System.out.println("==================================");
-                    System.out.println("\tData: " + data);
-                    System.out.println("==================================");
-                    System.out.println("\tEscolha uma opção:");
-                    System.out.println("(1) - Obter o dia seguinte");
-                    System.out.println("(2) - Obter vários dias adiante");
-                    System.out.println("(3) - Obter o dia anterior");
-                    System.out.println("(4) - Obter vários dias atrás");
-                    System.out.println("(0) - Sair");
-                    System.out.println("==================================");
+                    ConsoleManager.subMenu(data, new String[] {
+                        "(1) - Obter o dia seguinte",
+                        "(2) - Obter vários dias adiante",
+                        "(3) - Obter o dia anterior\"",
+                        "(4) - Obter vários dias atrás",
+                        "(0) - Sair"
+                    });
                         
                     do
                     {
-                        try 
-                        {
-                            System.out.print("Digite uma opção: ");
-                            opcaoMenu = Byte.parseByte(entrada.readLine());
+                        opcaoMenu = ConsoleManager.lerByte("Digite uma opção: ");
 
-                            if (opcaoMenu<0 || opcaoMenu>4)
-                                System.err.println("Erro! Digite uma das opções válidas...\n");
-                        } 
-                        catch (IOException erro) 
-                        {
-                            opcaoMenu = 9;  // Atribui um valor qualquer
-                        } 
-                        catch (NumberFormatException erro) 
-                        {
-                            System.err.println("\nByte inserido inválido! Por favor, digite novamente...");
-                            opcaoMenu = 9;
-                        }
+                        if (opcaoMenu<0 || opcaoMenu>4)
+                            System.err.println("Erro! Digite uma das opções válidas...\n");
                     }
                     while (opcaoMenu<0 || opcaoMenu>4);
                     
@@ -234,26 +144,14 @@ public class Main
                             break;
 
                         case 2:
-                            while (true)
+                            int diasAdiante = ConsoleManager.lerInt("Avançar quantos dias? ");
+                            try 
                             {
-                                try 
-                                {
-                                    System.out.print("Avançar quantos dias? ");
-                                    int qtdDias = Integer.parseInt(entrada.readLine());
-
-                                    System.out.println("\nData: " + data.getVariosDiasAdiante(qtdDias));
-                                    break;
-                                } 
-                                catch (IOException erro) 
-                                {} 
-                                catch (NumberFormatException erro) 
-                                {
-                                    System.err.println("\nint inserido inválido!");
-                                } 
-                                catch (Exception erro) 
-                                {
-                                    System.err.println(erro.getMessage());
-                                }
+                                System.out.println("\nData: " + data.getVariosDiasAdiante(diasAdiante));
+                            } 
+                            catch (Exception erro) 
+                            {
+                                System.err.println(erro.getMessage());
                             }
                             break;
 
@@ -262,26 +160,14 @@ public class Main
                             break;
 
                         case 4:
-                            while (true)
+                            int diasAtras = ConsoleManager.lerInt("Retroceder quantos dias? ");
+                            try 
                             {
-                                try 
-                                {
-                                    System.out.print("Retroceder quantos dias? ");
-                                    int qtdDias = Integer.parseInt(entrada.readLine());
-
-                                    System.out.println("\nData: " + data.getVariosDiasAtras(qtdDias));
-                                    break;
-                                } 
-                                catch (IOException erro) 
-                                {} 
-                                catch (NumberFormatException erro) 
-                                {
-                                    System.err.println("\nint inserido inválido!");
-                                } 
-                                catch (Exception erro) 
-                                {
-                                    System.err.println(erro.getMessage());
-                                }
+                                System.out.println("\nData: " + data.getVariosDiasAtras(diasAtras));
+                            } 
+                            catch (Exception erro) 
+                            {
+                                System.err.println(erro.getMessage());
                             }
                             break;
 
@@ -296,24 +182,11 @@ public class Main
                     break;
             }
 
-            // Tratando a leitura da resposta final corretamente
-            try 
-			{
-                System.out.print("Deseja encerrar o Programa? (S/N): ");
-                respostaFinalUsuario = entrada.readLine().toUpperCase();
-            } 
-			catch (IOException erro) 
-			{
-                respostaFinalUsuario = "S";  // Caso ocorra erro na leitura, assume-se que o usuário quer sair
-            } 
-			catch (Exception erro) 
-			{
-                respostaFinalUsuario = "S";  
-            }
-
+            respostaFinalUsuario = ConsoleManager.encerrarPrograma("Deseja encerrar o Programa? (S/N): ").toUpperCase();
+            
         } while (respostaFinalUsuario.equals("N"));
 
-		System.out.println("Programa Encerrado.");
+		System.out.println("\nPrograma Encerrado.");
 		System.out.println("==================================");
 		System.out.println("OBRIGADO POR USAR ESTE PROGRAMA!");
 		System.out.println("==================================");
