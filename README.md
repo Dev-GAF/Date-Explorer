@@ -6,17 +6,17 @@ Desenvolvido com Java, o projeto utiliza uma classe Data para representar e mani
 
 ## 🎯 Funcionalidades
 
-* - 🔄 **Manipulação Persistente:** Avance ou retroceda uma data e continue manipulando o valor atualizado.
-* - 🔍 **Consulta de Datas:** Veja versões futuras ou passadas de uma data sem alterar o valor original.
-* - 🧠 **Reutilização Inteligente:** O valor original da data é salvo e reutilizado em consultas.
-* - 🧼 **Limpeza de Terminal:** Comandos para deixar o terminal limpo e organizado.
-* - 📋 **Validações e Menus Dinâmicos:** Entrada de dados com validação e menus reutilizáveis.
+- 🔄 **Manipulação Persistente:** Avance ou retroceda uma data e continue manipulando o valor atualizado.
+- 🔍 **Consulta de Datas:** Veja versões futuras ou passadas de uma data sem alterar o valor original.
+- 🧠 **Reutilização Inteligente:** O valor original da data é salvo e reutilizado em consultas.
+- 🧼 **Limpeza de Terminal:** Comandos para deixar o terminal limpo e organizado.
+- 📋 **Validações e Menus Dinâmicos:** Entrada de dados com validação e menus reutilizáveis.
 
 ## ⚙ Tecnologias Utilizadas
 
-* 💻 Java SE 8+
-* 🧪 Terminal interativo
-* 🧠 Programação orientada a objetos
+- 💻 Java SE 8+
+- 🧪 Terminal interativo
+- 🧠 Programação orientada a objetos
 
 ## 📱 Interface
 
@@ -24,8 +24,8 @@ Menu baseado em texto com as seguintes opções:
 
 ### Menu Principal:
 
-* (1) Manipular a Data
-* (2) Ver Qualquer Data
+- (1) Manipular a Data
+- (2) Ver Qualquer Data
 
 ### Manipulação:
 
@@ -39,16 +39,16 @@ Sempre reinicia a data para o valor original, sem modificá-la.
 
 ## 💡 Funcionalidades do Código
 
-* - **Data Original:** A primeira data inserida é armazenada como base.
-* - **Persistência em execução:** Manipulações são mantidas entre interações.
-* - **Resgate da data inicial:** Sempre que necessário, a data volta ao estado original.
+- **Data Original:** A primeira data inserida é armazenada como base.
+- **Persistência em execução:** Manipulações são mantidas entre interações.
+- **Resgate da data inicial:** Sempre que necessário, a data volta ao estado original.
 
 ## ▶ Como Executar o Projeto
 
 ### 📚 Requisitos
 
-* - Java JDK 8 ou superior
-* - Terminal com `javac` e `java` configurados
+- Java JDK 8 ou superior
+- Terminal com `javac` e `java` configurados
 
 ## 📄 Licença
 
