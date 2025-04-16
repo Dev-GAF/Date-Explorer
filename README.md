@@ -50,19 +50,7 @@ Sempre reinicia a data para o valor original, sem modificá-la.
 - Java JDK 8 ou superior
 - Terminal com `javac` e `java` configurados
 
-### 📁 Estrutura do Projeto
-
-```plaintext
-Date-Explorer/
-├── calendario/
-│   └── Data.java             // Lógica de manipulação de datas
-├── console/
-│   └── ConsoleManager.java   // Utilitários de entrada, menus e terminal
-├── programa/
-│   └── Main.java             // Classe principal que executa o programa
-```
-
-### Passo a Passo
+### ♟ Passo a Passo
 
 **Para utilizar o Date Explorer no seu computador, siga os passos abaixo:**
 
@@ -78,6 +66,19 @@ javac programa/Main.java calendario/Data.java console/ConsoleManager.java
 
 # 4. Execute o programa:
 java programa.Main
+```
+💡 Observação: certifique-se de estar na raiz do projeto ao executar os comandos acima. Todos os arquivos .java estão organizados em pacotes distintos.
+
+### 📁 Estrutura do Projeto
+
+```plaintext
+Date-Explorer/
+├── calendario/
+│   └── Data.java             // Lógica de manipulação de datas
+├── console/
+│   └── ConsoleManager.java   // Utilitários de entrada, menus e terminal
+├── programa/
+│   └── Main.java             // Classe principal que executa o programa
 ```
 
 ## 📄 Licença
