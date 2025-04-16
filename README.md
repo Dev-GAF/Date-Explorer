@@ -55,19 +55,22 @@ Sempre reinicia a data para o valor original, sem modificá-la.
 **Para utilizar o Date Explorer no seu computador, siga os passos abaixo:**
 
 ```bash
-# 1. Clone este repositório para sua máquina:
+# 1. Acesse o local onde você quer salvar o projeto
+cd Desktop
+
+# 2. Clone este repositório para sua máquina:
 git clone https://github.com/Dev-GAF/Date-Explorer.git
 
-# 2. Acesse a pasta do projeto:
+# 3. Acesse a pasta do projeto:
 cd Date-Explorer
 
-# 3. Compile os arquivos Java:
+# 4. Compile os arquivos Java:
 javac programa/Main.java calendario/Data.java console/ConsoleManager.java
 
-# 4. Execute o programa:
+# 5. Execute o programa:
 java programa.Main
 ```
-💡 Observação: certifique-se de estar na raiz do projeto ao executar os comandos acima. Todos os arquivos .java estão organizados em pacotes distintos.
+💡 Observação: Certifique-se de estar na raiz do projeto ao executar os comandos acima. Se estiver usando o PowerShell e encontrar algum erro, tente abrir o CMD tradicional, pois ele costuma funcionar melhor com projetos Java simples. Todos os arquivos .java estão organizados em pacotes distintos.
 
 ### 📁 Estrutura do Projeto
 
